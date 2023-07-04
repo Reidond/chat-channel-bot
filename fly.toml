@@ -1,22 +1,22 @@
-# fly.toml app configuration file generated for quiet-water-3418 on 2023-06-27T01:26:59+03:00
+# fly.toml app configuration file generated for chat-channel-bot-9221 on 2023-07-04T14:58:49+03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
+app = "chat-channel-bot-9221"
 primary_region = "arn"
 kill_signal = "SIGINT"
-kill_timeout = 5
-
-[build]
-dockerfile = "Dockerfile"
-
-[processes]
-chat_channel_bot = "python -m chat_channel_bot.discord_bot"
+kill_timeout = "5s"
 
 [experimental]
-allowed_public_ports = []
-auto_rollback = true
+  auto_rollback = true
+
+[build]
+  dockerfile = "Dockerfile"
+
+[processes]
+  chat_channel_bot = "python -m chat_channel_bot.discord_bot"
 
 [mounts]
-source = "myapp_data"
-destination = "/app/db"
+  source = "myapp_data"
+  destination = "/app/db"
