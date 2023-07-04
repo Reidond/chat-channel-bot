@@ -1,0 +1,8 @@
+config.yml
+*.config.yml
+config.ini
+*.config.ini
+__debug_bin
+.venv
+__pycache__
+**/db

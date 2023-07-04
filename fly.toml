@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for quiet-water-3418 on 2023-06-27T01:26:59+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+primary_region = "arn"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[build]
+dockerfile = "Dockerfile"
+
+[processes]
+chat_channel_bot = "python -m chat_channel_bot.discord_bot"
+
+[experimental]
+allowed_public_ports = []
+auto_rollback = true
+
+[mounts]
+source = "myapp_data"
+destination = "/app/db"
